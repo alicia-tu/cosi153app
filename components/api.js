@@ -6,7 +6,7 @@ const GitHubDemo = () => {
 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true);
-    const [temporaryUsername, setTemporaryUsername] = useState('tjhickey724');
+    const [temporaryUsername, setTemporaryUsername] = useState('');
 
     const [username, setUsername] = useState('tjhickey724');
 
