@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, TextInput, ActivityIndicator, FlatList, Button } from 'react-native';
 
 
-const GitHubDemo = () => {
+const CourseDemo = () => {
 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true);
-    const [temporaryUsername, setTemporaryUsername] = useState('');
+    const [temporaryInput, setTemporaryInput] = useState('');
 
-    const [username, setUsername] = useState('tjhickey724');
+    const [subject, setSubject] = useState('');
 
     const getRepos = async () => {
         try {
-            const response = await fetch('https://api.github.com/users/' + username + '/repos');
+            const response = await fetch('https://www.cs.brandeis.edu/~tim/cs103aSpr22/courses20-21.json');
             const json = await response.json();
             setData(json);
         } catch (error) {
@@ -22,32 +22,35 @@ const GitHubDemo = () => {
         }
     }
 
-    useEffect(() => { getRepos() }, [username])
+    useEffect(() => { getRepos() }, [subject])
 
     return (
 
         <View style={{ flex: 1, padding: 24 }}>
 
             <TextInput
-                placeholder="Enter GitHub Username"
-                onChangeText={newText => setTemporaryUsername(newText)}
-                defaultValue={temporaryUsername}
+                placeholder="Enter subject (abbreviated)"
+                onChangeText={newText => setTemporaryInput(newText)}
+                defaultValue={temporaryInput}
             />
 
             <Button
                 title="Submit"
                 onPress={() => {
-                    setUsername(temporaryUsername)
+                    setSubject(temporaryInput)
                 }}
             />
 
             {isLoading ? <ActivityIndicator /> : (
                 <FlatList
-                    data={data}
-                    keyExtractor={({ id }, index) => id}
+                    data={data.slice(0,2)}
+                    keyExtractor={({ coursenum }, index) => coursenum}
                     renderItem={({ item }) => (
+                        <View style = {{flexDirection: "row",
+                                        padding: 15,
+                                        margin: 5,}}>
                         <Text>{item.name}</Text>
-
+                        </View>
                     )}
                 />
             )}
@@ -55,4 +58,4 @@ const GitHubDemo = () => {
     )
 }
 
-export default GitHubDemo
+export default CourseDemo
