@@ -4,7 +4,7 @@ import picture from './alicia.jpg';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 15,
     backgroundColor: "powderblue",
   },
   logo: {
@@ -18,10 +18,10 @@ const styles = StyleSheet.create({
   title:{
     fontWeight: "bold",
     textAlign: "center",
-    fontSize: 100,
+    fontSize: 30,
   },
   text:{
-    fontSize: 40,
+    fontSize: 20,
     textAlign: "center",
   }
 });

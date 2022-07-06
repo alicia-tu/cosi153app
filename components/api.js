@@ -12,9 +12,9 @@ const CourseDemo = () => {
 
     const getRepos = async () => {
         try {
-            const response = await fetch('https://www.cs.brandeis.edu/~tim/cs103aSpr22/courses20-21.json');
+            const response = await fetch('https://damp-springs-29329.herokuapp.com/data/courses20-21.json');
             const json = await response.json();
-            setData(json);
+            setData(json.filter((x) => (x['subject']== subject)));
         } catch (error) {
             console.error(error);
         } finally {
