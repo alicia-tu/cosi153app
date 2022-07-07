@@ -1,0 +1,2 @@
+My app currently have a collection of functions related to class and career. My app can search up classes from the brandeis class api's json, have a counter to count how many classes there are, go to websites of career with link, giving feedback and sending feedbacks.
+In the future I want to add more related feature to it, such as a schedule (so creating a sheet to put everything in), and change the layout a little bit (making the buttons look better on the phone also)
