@@ -43,13 +43,13 @@ const CourseDemo = () => {
 
             {isLoading ? <ActivityIndicator /> : (
                 <FlatList
-                    data={data.slice(0,2)}
+                    data={data.slice(0,1)}
                     keyExtractor={({ coursenum }, index) => coursenum}
                     renderItem={({ item }) => (
                         <View style = {{flexDirection: "row",
                                         padding: 15,
                                         margin: 5,}}>
-                        <Text>{item.name}</Text>
+                         <Text>{item.name}</Text>
                         </View>
                     )}
                 />
